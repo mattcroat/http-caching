@@ -8,8 +8,8 @@ export const get: RequestHandler = async ({ params }) => {
 
   return {
     body: { post },
-    headers: {
-      'Cache-Control': 'max-age=0, s-maxage=120',
-    },
+    // headers: {
+    //   'Cache-Control': 'max-age=0, s-maxage=120',
+    // },
   }
 }

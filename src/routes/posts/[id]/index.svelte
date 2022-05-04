@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<!-- <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit'
 
   export const load: Load = async ({ props }) => {
@@ -7,14 +7,11 @@
       cache: { maxage: 60 },
     }
   }
-</script>
-
+</script> -->
 <script lang="ts">
   import Timer from '../../../components/timer.svelte'
 
   export let post: any = {}
-
-  console.log(post)
 </script>
 
 <Timer />

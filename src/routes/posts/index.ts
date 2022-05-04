@@ -7,9 +7,9 @@ export const get: RequestHandler = async () => {
   return {
     body: {
       posts: posts.splice(0, 10),
-      headers: {
-        'Cache-Control': 'max-age=0, s-maxage=120',
-      },
+      // headers: {
+      //   'Cache-Control': 'max-age=0, s-maxage=120',
+      // },
     },
   }
 }
