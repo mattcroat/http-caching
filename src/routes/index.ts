@@ -2,12 +2,11 @@ import type { RequestHandler } from '@sveltejs/kit'
 
 let todos = [{ id: 1, description: 'Todo 1' }]
 
-export const get: RequestHandler = async () => {
+export const get: RequestHandler = async ({ request }) => {
+  if (request.method !== 'GET') return {}
+
   return {
     body: { todos },
-    headers: {
-      'Cache-Control': 'public, max-age=0, s-maxage=80',
-    },
   }
 }
 

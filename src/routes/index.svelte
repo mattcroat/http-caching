@@ -3,15 +3,32 @@
 
   export const load: Load = async ({ props }) => {
     return {
-      props: { todos: props.todos },
-      cache: { maxage: 80 },
+      props,
+      cache: { maxage: 60 },
     }
   }
 </script>
 
 <script lang="ts">
-  export let todos: any[]
+  import Timer from '../components/timer.svelte'
+
+  export let todos: any[] = []
 </script>
+
+<Timer />
+
+<h1>Todos</h1>
+
+<ul>
+  <li>
+    New todos should be cached so you shouldn't get new ones if you refresh
+  </li>
+  <li>Inside network tab this shows as cache HIT and 304 HTTP response</li>
+  <li>Cache should expire after 60 seconds</li>
+  <li>The endpoint isn't cached</li>
+</ul>
+
+<hr />
 
 <ul>
   {#each todos as todo}
@@ -19,6 +36,11 @@
   {/each}
 </ul>
 
-<form method="post">
+<form
+  method="post"
+  on:submit|preventDefault={async () => {
+    await fetch('/', { method: 'post' })
+  }}
+>
   <button type="submit">Add todo</button>
 </form>

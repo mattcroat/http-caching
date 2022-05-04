@@ -3,10 +3,16 @@
 
   export const load: Load = async () => {
     return {
-      cache: { maxage: 80 },
+      cache: { maxage: 60 },
     }
   }
 </script>
+
+<script lang="ts">
+  import Timer from '../components/timer.svelte'
+</script>
+
+<Timer />
 
 <h1>About</h1>
 
